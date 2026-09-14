@@ -52,6 +52,10 @@
 
         .brand { color: var(--ink); font-weight: 700; letter-spacing: .03em; text-decoration: none; }
         .brand span { color: var(--orange); }
+        nav { display: flex; gap: 22px; margin-left: auto; margin-right: 34px; }
+        nav a { color: var(--muted); font: .78rem 'DM Mono', monospace; text-decoration: none; text-transform: uppercase; }
+        nav a:hover, nav a[aria-current="page"] { color: var(--teal); }
+        nav a[aria-current="page"]::before { content: '> '; color: var(--orange); }
         .status { color: var(--teal); font-family: 'DM Mono', monospace; font-size: .78rem; }
         .status::before { content: ''; display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 14px var(--teal); }
 
@@ -85,6 +89,8 @@
 
         @media (max-width: 700px) {
             header { padding-top: 20px; padding-bottom: 20px; }
+            nav { gap: 14px; margin-right: 0; }
+            nav a { font-size: .7rem; }
             .status { display: none; }
             .hero { grid-template-columns: 1fr; gap: 35px; padding-top: 35px; }
             .fox-wrap { justify-self: center; width: min(72vw, 280px); }
@@ -97,6 +103,10 @@
 <body>
     <header>
         <a class="brand" href="#top">technoshy<span>.fox</span></a>
+        <nav aria-label="Main navigation">
+            <a href="index.html" aria-current="page">home</a>
+            <a href="journey.html">journey</a>
+        </nav>
         <div class="status">available for good ideas</div>
     </header>
 

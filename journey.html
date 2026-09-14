@@ -52,6 +52,10 @@
 
         .brand { color: var(--ink); font-weight: 700; letter-spacing: .03em; text-decoration: none; }
         .brand span { color: var(--orange); }
+        nav { display: flex; gap: 22px; margin-left: auto; margin-right: 34px; }
+        nav a { color: var(--muted); font: .78rem 'DM Mono', monospace; text-decoration: none; text-transform: uppercase; }
+        nav a:hover, nav a[aria-current="page"] { color: var(--teal); }
+        nav a[aria-current="page"]::before { content: '> '; color: var(--orange); }
         .status { color: var(--teal); font: .78rem 'DM Mono', monospace; }
         .status::before { content: ''; display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 14px var(--teal); }
 
@@ -82,6 +86,8 @@
 
         @media (max-width: 700px) {
             header { padding-top: 20px; padding-bottom: 20px; }
+            nav { gap: 14px; margin-right: 0; }
+            nav a { font-size: .7rem; }
             .status { display: none; }
             .hero { padding-top: 45px; padding-bottom: 60px; }
             .section { padding-top: 38px; padding-bottom: 48px; }
@@ -93,6 +99,10 @@
 <body>
     <header>
         <a class="brand" href="index.html">technoshy<span>.fox</span></a>
+        <nav aria-label="Main navigation">
+            <a href="index.html">home</a>
+            <a href="journey.html" aria-current="page">journey</a>
+        </nav>
         <div class="status">a work in progress</div>
     </header>
 
