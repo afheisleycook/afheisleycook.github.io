@@ -1,1 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Decentralization and resilient digital systems. A human-centered view of autonomy, trust, and collective coordination.">
+    <title>Technoshy | Decentralization</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
+        :root {
+            --ink: #f7f2e8;
+            --muted: #a9b7b1;
+            --night: #101a20;
+            --panel: #17262b;
+            --line: #2a4244;
+            --teal: #50c8b7;
+            --orange: #f27a3d;
+            --gold: #f5c76a;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--night);
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.65;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .25;
+            background-image: linear-gradient(rgba(80, 200, 183, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(80, 200, 183, .06) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: linear-gradient(to bottom, black, transparent 75%);
+        }
+
+        header, main, footer { position: relative; max-width: 1100px; margin: 0 auto; padding-left: 6vw; padding-right: 6vw; }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 28px;
+            padding-bottom: 28px;
+        }
+
+        .brand { color: var(--ink); font-weight: 700; letter-spacing: .03em; text-decoration: none; }
+        .brand span { color: var(--orange); }
+        nav { display: flex; gap: 22px; margin-left: auto; margin-right: 34px; }
+        nav a { color: var(--muted); font: .78rem 'DM Mono', monospace; text-decoration: none; text-transform: uppercase; }
+        nav a:hover, nav a[aria-current="page"] { color: var(--teal); }
+        nav a[aria-current="page"]::before { content: '> '; color: var(--orange); }
+        .status { color: var(--teal); font-family: 'DM Mono', monospace; font-size: .78rem; }
+        .status::before { content: ''; display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 14px var(--teal); }
+
+        .hero { display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 5vw; min-height: 510px; padding-top: 55px; padding-bottom: 75px; }
+        .eyebrow, .label { color: var(--orange); font-family: 'DM Mono', monospace; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+        h1 { max-width: 700px; margin: 14px 0 22px; font-size: clamp(3.1rem, 7vw, 6.2rem); line-height: .93; letter-spacing: -.07em; }
+        h1 em { color: var(--teal); font-style: normal; }
+        .intro { max-width: 560px; color: var(--muted); font-size: 1.1rem; }
+        .motto { margin-top: 30px; color: var(--gold); font-family: 'DM Mono', monospace; font-size: .9rem; }
+
+        .hero-card {
+            justify-self: end;
+            width: min(100%, 360px);
+            padding: 22px;
+            border: 1px solid var(--line);
+            background: rgba(23, 38, 43, .8);
+            transform: rotate(2deg);
+        }
+        .hero-card::after { content: 'DEC / 01'; position: absolute; right: 14px; bottom: 10px; color: var(--muted); font: .68rem 'DM Mono', monospace; }
+        .hero-card .chip {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 6px 10px;
+            border: 1px solid var(--line);
+            color: var(--gold);
+            font: .72rem 'DM Mono', monospace;
+        }
+        .hero-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .section { border-top: 1px solid var(--line); padding-top: 52px; padding-bottom: 70px; }
+        h2 { margin: 10px 0 18px; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -.04em; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .two-col p { margin-top: 0; color: var(--muted); }
+        .quote { border-left: 3px solid var(--orange); padding: 18px 24px; background: var(--panel); color: var(--ink); font-size: 1.2rem; }
+
+        .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+        .card { min-height: 180px; padding: 24px; border: 1px solid var(--line); background: rgba(23, 38, 43, .78); }
+        .card h3 { margin: 12px 0; color: var(--ink); font-size: 1.3rem; }
+        .card p, .card li { color: var(--muted); font-size: .92rem; }
+        ul { padding: 0; margin: 0; list-style: none; }
+        li { display: inline-block; margin: 0 6px 8px 0; padding: 4px 9px; border: 1px solid var(--line); font-family: 'DM Mono', monospace; font-size: .78rem; }
+        a { color: var(--teal); }
+        a:hover { color: var(--gold); }
+
+        .cta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            padding: 24px;
+            border: 1px solid var(--line);
+            background: rgba(23, 38, 43, .78);
+        }
+        .cta p { margin: 0; color: var(--muted); }
+        .button {
+            display: inline-block;
+            padding: 12px 18px;
+            border: 1px solid var(--teal);
+            color: var(--ink);
+            text-decoration: none;
+            font-family: 'DM Mono', monospace;
+            font-size: .82rem;
+            text-transform: uppercase;
+        }
+
+        footer { display: flex; justify-content: space-between; gap: 20px; padding-top: 26px; padding-bottom: 34px; color: var(--muted); font: .76rem 'DM Mono', monospace; }
+
+        @media (max-width: 700px) {
+            header { padding-top: 20px; padding-bottom: 20px; }
+            nav { gap: 14px; margin-right: 0; }
+            nav a { font-size: .7rem; }
+            .status { display: none; }
+            .hero { grid-template-columns: 1fr; gap: 35px; padding-top: 35px; }
+            .hero-card { justify-self: center; width: min(72vw, 280px); }
+            .two-col, .cards { grid-template-columns: 1fr; gap: 18px; }
+            .section { padding-top: 38px; padding-bottom: 48px; }
+            .cta { flex-direction: column; align-items: flex-start; }
+            footer { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="brand" href="index.html">technoshy<span>.fox</span></a>
+        <nav aria-label="Main navigation">
+            <a href="index.html">home</a>
+            <a href="journey.html">journey</a>
+            <a href="decentralization.html" aria-current="page">decentralization</a>
+        </nav>
+        <div class="status">open systems</div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div>
+                <div class="eyebrow">// decentralization</div>
+                <h1>Power should live <em>with people</em>, not behind central doors.</h1>
+                <p class="intro">Decentralization is about redistributing authority, resilience, and access so that networks become more open, trustworthy, and human-centered.</p>
+                <div class="motto">&gt; build systems that survive single points of failure</div>
+            </div>
+            <div class="hero-card">
+                <div class="chip">core idea</div>
+                <p>Instead of relying on a single gatekeeper, a decentralized system spreads trust and responsibility across many participants.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="label">01 / why it matters</div>
+            <div class="two-col">
+                <div>
+                    <h2>When control is concentrated, fragility grows.</h2>
+                    <p>Centralized systems are efficient, but they create chokepoints. A single outage, policy change, or platform decision can ripple across entire networks.</p>
+                    <p>Decentralization doesn't remove governance; it changes the shape of it. It spreads responsibility, gives communities more agency, and makes systems harder to censor or collapse.</p>
+                </div>
+                <div class="quote">"A healthy system is one that keeps working even when the center is no longer the only place that matters."</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="label">02 / principles</div>
+            <h2>What a better system looks like.</h2>
+            <div class="cards">
+                <article class="card">
+                    <div class="label">01</div>
+                    <h3>Local control</h3>
+                    <p>People should be able to keep ownership of their data, tools, and digital presence without depending on a single platform.</p>
+                </article>
+                <article class="card">
+                    <div class="label">02</div>
+                    <h3>Open standards</h3>
+                    <p>Interoperability matters. Systems work better when they can communicate across networks rather than lock users into one vendor.</p>
+                </article>
+                <article class="card">
+                    <div class="label">03</div>
+                    <h3>Resilience</h3>
+                    <p>Distributed design reduces single points of failure, helping communities continue operating when parts of the system break.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="label">03 / examples</div>
+            <h2>Decentralization in practice.</h2>
+            <div class="cards">
+                <article class="card">
+                    <div class="label">social</div>
+                    <h3>Independent networks</h3>
+                    <p>Platforms that let people own their identities and participate without one central monopoly controlling every interaction.</p>
+                </article>
+                <article class="card">
+                    <div class="label">data</div>
+                    <h3>Portable information</h3>
+                    <p>Data that can move between tools and services without being trapped inside a closed ecosystem or locked format.</p>
+                </article>
+                <article class="card">
+                    <div class="label">governance</div>
+                    <h3>Collective coordination</h3>
+                    <p>Decision-making that distributes authority across contributors instead of depending on a single authority to approve everything.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="label">04 / focus</div>
+            <div class="two-col">
+                <div>
+                    <h2>It is not about chaos.</h2>
+                    <p>Decentralization is not the same as anarchy. It is a design philosophy that balances autonomy with coordination. Good systems still need standards, trust, and shared rules.</p>
+                    <p>The real challenge is building infrastructure that supports freedom without collapsing into fragmentation. The goal is healthy interoperability, not endless duplication.</p>
+                </div>
+                <div class="card">
+                    <div class="label">core values</div>
+                    <h3>What to optimize for</h3>
+                    <ul>
+                        <li>ownership</li>
+                        <li>openness</li>
+                        <li>trust</li>
+                        <li>accessibility</li>
+                        <li>interoperability</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="label">05 / next step</div>
+            <div class="cta">
+                <p>Decentralization is a long-term strategy for building digital life that is more resilient, more fair, and less dependent on fragile central control.</p>
+                <a class="button" href="index.html">Back home</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span>© technoshy 2026</span>
+        <span>made with curiosity + code</span>
+    </footer>
+</body>
+</html>
