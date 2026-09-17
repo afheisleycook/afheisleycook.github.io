@@ -26,7 +26,7 @@ I like to keep things simple and focused. If you have a project or idea, feel fr
 
 ## Current Focus
 
-I decided to focus on IT as a career and keep coding as a hobby!
+I decided to focus on web developement
 
 _Last updated: September 14, 2026._
 
