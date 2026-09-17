@@ -3,17 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>I am ditching Signal for Matrix</title>
+    <title>I’m Ditching Signal for Matrix</title>
     <style>
       :root {
-        --bg: #0b1020;
-        --panel: #121a2b;
-        --panel-alt: #1a243c;
-        --text: #edf3ff;
-        --muted: #b8c4de;
-        --accent: #61dafb;
-        --accent-2: #8b5cf6;
-        --line: rgba(255,255,255,0.08);
+        --bg: #0f172a;
+        --panel: rgba(15, 23, 42, 0.8);
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --line: rgba(148, 163, 184, 0.22);
+        --accent: #7dd3fc;
       }
 
       * { box-sizing: border-box; }
@@ -21,123 +19,82 @@
       body {
         margin: 0;
         min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Arial, Helvetica, sans-serif;
-        background:
-          radial-gradient(circle at top, rgba(97, 218, 251, 0.15), transparent 35%),
-          linear-gradient(135deg, var(--bg) 0%, #101827 100%);
-        color: var(--text);
+        display: grid;
+        place-items: center;
         padding: 32px;
+        background:
+          radial-gradient(circle at top, rgba(125, 211, 252, 0.12), transparent 30%),
+          linear-gradient(180deg, #020817 0%, var(--bg) 100%);
+        color: var(--text);
+        font-family: "Segoe UI", Arial, sans-serif;
       }
 
-      .page {
-        width: min(900px, 100%);
-        background: rgba(18, 26, 43, 0.9);
+      .card {
+        width: min(760px, 100%);
+        padding: 48px 52px;
         border: 1px solid var(--line);
-        border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-        overflow: hidden;
+        background: var(--panel);
+        backdrop-filter: blur(8px);
+        border-radius: 18px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
       }
 
-      .header {
-        padding: 32px 32px 20px;
-        border-bottom: 1px solid var(--line);
-        background: linear-gradient(135deg, rgba(97,218,251,0.12), rgba(139,92,246,0.08));
-      }
-
-      .eyebrow {
-        display: inline-block;
-        font-size: 12px;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
+      .kicker {
+        margin: 0 0 14px;
         color: var(--accent);
-        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 11px;
+        font-weight: 600;
       }
 
       h1 {
         margin: 0;
+        font-weight: 500;
         font-size: clamp(2.2rem, 5vw, 4rem);
-        line-height: 1.05;
-      }
-
-      .content {
-        padding: 28px 32px 36px;
+        line-height: 1.08;
+        letter-spacing: -0.05em;
       }
 
       p {
-        font-size: 1.1rem;
-        line-height: 1.7;
+        margin: 22px 0 0;
         color: var(--muted);
-        margin: 0 0 18px;
-      }
-
-      .highlight {
-        color: var(--text);
-        font-weight: 700;
-      }
-
-      .card {
-        margin-top: 20px;
-        padding: 20px 22px;
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        background: rgba(255,255,255,0.02);
-      }
-
-      ul {
-        margin: 0;
-        padding-left: 20px;
-        color: var(--muted);
+        font-size: 1.05rem;
         line-height: 1.8;
       }
 
+      .strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
       .signature {
-        margin-top: 26px;
-        padding-top: 18px;
+        margin-top: 32px;
+        padding-top: 20px;
         border-top: 1px solid var(--line);
         color: var(--text);
-        font-weight: 700;
+        font-size: 0.92rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
       }
     </style>
   </head>
   <body>
-    <main class="page">
-      <header class="header">
-        <div class="eyebrow">Public Notice</div>
-        <h1>I am ditching Signal for Matrix.</h1>
-      </header>
+    <main class="card">
+      <p class="kicker">Announcement</p>
+      <h1>I’m ditching Signal for Matrix.</h1>
 
-      <div class="content">
-        <p>
-          I am formally moving my messaging away from <span class="highlight">Signal</span>
-          and embracing <span class="highlight">Matrix</span> as my primary communication platform.
-        </p>
+      <p>
+        I’m moving my messaging to <span class="strong">Matrix</span>.
+        I value open standards, decentralization, and the freedom to communicate without being locked into a single platform.
+      </p>
 
-        <p>
-          Signal was once a strong option, but I value open standards, federation, and user control more than
-          closed ecosystem convenience. Matrix gives me the freedom to communicate in a more decentralized,
-          future-proof, and interoperable way.
-        </p>
+      <p>
+        Matrix offers a more resilient and interoperable future, and that matters to me.
+        This is my move: <span class="strong">Signal out, Matrix in.</span>
+      </p>
 
-        <div class="card">
-          <p class="highlight">Why I am switching:</p>
-          <ul>
-            <li>Matrix is decentralized and federated, not locked to a single corporate platform.</li>
-            <li>It supports open protocols and greater interoperability across ecosystems.</li>
-            <li>I want more control over my identity, privacy, and communication infrastructure.</li>
-            <li>Matrix aligns better with my values around autonomy, openness, and long-term resilience.</li>
-          </ul>
-        </div>
-
-        <p>
-          This is my declaration: I am leaving Signal and moving my conversations to Matrix.
-          I encourage others to explore open, federated alternatives when they care about digital autonomy.
-        </p>
-
-        <p class="signature">— Technoshythecodefox</p>
-      </div>
+      <div class="signature">— Technoshythecodefox</div>
     </main>
   </body>
 </html>
